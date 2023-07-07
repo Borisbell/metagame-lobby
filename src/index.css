@@ -37,10 +37,17 @@ h1 {
   line-height: 1.1;
 }
 
+ul, li {
+  margin: 0;
+  padding: 0;
+  
+}
+
 /* widgets */
 .widgets{
   display: flex;
   align-items: start;
+  justify-content: center;
 }
 
 .button-style {
@@ -159,6 +166,35 @@ button:focus-visible {
   flex-direction: column;
   align-items: end;
   gap: 20px;
+}
+
+.widget-leaderboard{
+  display: flex;
+  flex-direction: column;
+  width: 350px;
+  background: #3D3D80;
+  border-radius: 24px;
+  overflow: hidden;
+}
+
+h2{
+  display: block;
+  padding: 8px;
+  margin: 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.20);
+}
+
+.lb_table-row{
+  display: flex;
+  flex-direction: row;
+  padding: 8px 12px;
+  gap:10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.20);
+  background: #3D3D80;
+}
+
+.lb_table-row:hover{
+  background: #5050AF;
 }
 
 @media (prefers-color-scheme: light) {
