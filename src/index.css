@@ -40,14 +40,14 @@ h1 {
 ul, li {
   margin: 0;
   padding: 0;
-  
 }
 
 /* widgets */
 .widgets{
   display: flex;
+  flex-direction: row;
+  justify-content: space-between;
   align-items: start;
-  justify-content: center;
 }
 
 .button-style {
@@ -63,10 +63,17 @@ ul, li {
 .button-style:hover {
   position: relative;
   top: 4px;
-  border-radius: 20px;
   background: #34346F;
   box-shadow: 0px 7px 0px 0px #282878;
 }
+
+.button-style:active {
+  position: relative;
+  top: 8px;
+  background: #34346F;
+  box-shadow: 0px 3px 0px 0px #282878;
+}
+
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
@@ -147,12 +154,6 @@ button:focus-visible {
   background: rgba(37, 21, 96, 0.80);
 }
 
-.widgets{
-  width: 80vw;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
 
 .widgets_leftside{
   display: flex;
@@ -172,9 +173,9 @@ button:focus-visible {
   display: flex;
   flex-direction: column;
   width: 350px;
-  background: #3D3D80;
-  border-radius: 24px;
   overflow: hidden;
+  border-radius: 24px;
+  background: #3D3D80;
 }
 
 h2{
@@ -182,6 +183,11 @@ h2{
   padding: 8px;
   margin: 0;
   border-bottom: 1px solid rgba(255, 255, 255, 0.20);
+}
+
+.lb_table{
+  height: 600px;
+  overflow-y: auto;
 }
 
 .lb_table-row{

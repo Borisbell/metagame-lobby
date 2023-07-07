@@ -1,88 +1,67 @@
 import { useState } from 'react'
+import Button from './button/Button'
+import LevelWidget from './LevelWidget/LevelWidget'
+import EnergyWidget from './EnergyWidget/EnergyWidget'
 import SecondaryButton from './secondary-button/SecondaryButton'
+import LeaderboardTable from './leaderboard/leaderboard-table/LeaderboardTable'
+import LeaderboardRow from './leaderboard/leaderboard-row/LeaderboardRow'
 import './App.css'
 
 function App() {
   const [LBIsShown, setLBIsShown] = useState(true)
+  const [isSoundOn, setIsSoundOn] = useState(true)
+  const [isFullscreenOn, setFullscreenOn] = useState(false)
 
   function toggleLeaderBoard(){
     setLBIsShown(LBIsShown => !LBIsShown)
+  }
+
+  function toggleSound(){
+    setIsSoundOn(isSoundOn => !isSoundOn)
+  }
+
+  function toggleFullScreen(){
+    setFullscreenOn(isFullscreenOn => !isFullscreenOn)
+    if (isFullscreenOn) {
+      document.documentElement.requestFullscreen();
+    } else if (!isFullscreenOn) {
+      document.exitFullscreen();
+    }
   }
 
   return (
     <>
       <div className="widgets">
         <div className="widgets_leftside">
-          <button className='button-style'>
-            <img src="src/assets/arrow_back.svg"/>
-          </button>
-          <div className='button-style button-widget' onClick={toggleLeaderBoard}>
-            <img className="widget-icon" src="src/assets/crown_big.svg"/>
-            <div className='progress-bar_wrapper progress-bar_wrapper-lvl'>
-              <div className='progress-bar_bg'></div>
-              <div className='progress-bar_indicator progress-bar_indicator-pink'></div>
-            </div>
-            <img className="widget-icon " src="src/assets/chest.svg"/>
-          </div>
-          <button className='button-style'>
-            <img src="src/assets/wardrobe.svg"/>
-          </button>
+          <Button img_url={'src/assets/arrow_back.svg'}/>
+          <LevelWidget toggleLeaderBoard={toggleLeaderBoard}/>
+          <Button img_url={'src/assets/wardrobe.svg'}/>
         </div>
         <div className="widgets_rightside">
-          <div className='button-style button-widget'>
-            <img className="widget-icon" src="src/assets/energy.svg"/>
-            <div className='progress-bar_wrapper'>
-              <div className='progress-bar_bg'></div>
-              <div className='progress-bar_indicator'></div>
-            </div>
-            <button className='button_energy'>
-              <img src="src/assets/plus-sign.svg"/>
-            </button>
-          </div>
+          <EnergyWidget/>
           <div className='widget_controlls'>
-            <SecondaryButton img_url={"src/assets/sound-on.svg"}/>
-            <SecondaryButton img_url={"src/assets/fullscreen.svg"}/>
+            <SecondaryButton toggle={isSoundOn}
+                             img_url={"src/assets/sound-on.svg"}
+                             img_url2={"src/assets/sound-off.svg"}
+                             toggleFunction={toggleSound}
+            />
+            <SecondaryButton toggle={isFullscreenOn}
+                             img_url={"src/assets/fullscreen.svg"}
+                             img_url2={"src/assets/fullscreen-off.svg"}
+                             toggleFunction={toggleFullScreen}
+            />
           </div>
         </div>
       </div>
       { LBIsShown &&
         <div className='widget-leaderboard'>
           <h2>Лидеры</h2>
-          <ul className='lb_table'>
-            <li className='lb_table-row'>
-              <h3>1</h3>
-              <h3>Вильгельмина</h3>
-              <div className='button-widget'>
-                <img className="widget-icon" src="src/assets/crown_big.svg"/>
-                <div className='progress-bar_wrapper progress-bar_wrapper-lvl'>
-                  <div className='progress-bar_bg'></div>
-                  <div className='progress-bar_indicator progress-bar_indicator-pink'></div>
-                </div>
-              </div>
-            </li>
-            <li className='lb_table-row'>
-              <h3>1</h3>
-              <h3>Вильгельмина</h3>
-              <div className='button-widget'>
-                <img className="widget-icon" src="src/assets/crown_big.svg"/>
-                <div className='progress-bar_wrapper progress-bar_wrapper-lvl'>
-                  <div className='progress-bar_bg'></div>
-                  <div className='progress-bar_indicator progress-bar_indicator-pink'></div>
-                </div>
-              </div>
-            </li>
-            <li className='lb_table-row'>
-              <h3>1</h3>
-              <h3>Вильгельмина</h3>
-              <div className='button-widget'>
-                <img className="widget-icon" src="src/assets/crown_big.svg"/>
-                <div className='progress-bar_wrapper progress-bar_wrapper-lvl'>
-                  <div className='progress-bar_bg'></div>
-                  <div className='progress-bar_indicator progress-bar_indicator-pink'></div>
-                </div>
-              </div>
-            </li>
-          </ul>
+          <LeaderboardTable>
+            <LeaderboardRow position='1' name='Вильгельмина'/>
+            <LeaderboardRow position='2' name='Аристотель'/>
+            <LeaderboardRow position='2' name='Аристотель'/>
+            <LeaderboardRow position='2' name='Аристотель'/>
+          </LeaderboardTable>
         </div>
       }
     </>
