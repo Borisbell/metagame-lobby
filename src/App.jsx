@@ -42,7 +42,7 @@ function App() {
         <div className="widgets_leftside">
           <Button img_url={'src/assets/arrow_back.svg'}/>
           <LevelWidget toggleLeaderBoard={toggleLeaderBoard}/>
-          <Button img_url={'src/assets/wardrobe.svg'}/>
+          <Button img_url={'public/wardrobe.svg'}/>
         </div>
         <div className="widgets_rightside">
           <EnergyWidget/>
