@@ -1,4 +1,6 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import useSound from 'use-sound';
+import sound from './assets/bg-music.mp3';
 import Button from './button/Button'
 import LevelWidget from './LevelWidget/LevelWidget'
 import EnergyWidget from './EnergyWidget/EnergyWidget'
@@ -8,9 +10,10 @@ import LeaderboardRow from './leaderboard/leaderboard-row/LeaderboardRow'
 import './App.css'
 
 function App() {
+  const [play, { stop }] = useSound(sound);
   const [LBIsShown, setLBIsShown] = useState(true)
-  const [isSoundOn, setIsSoundOn] = useState(true)
-  const [isFullscreenOn, setFullscreenOn] = useState(false)
+  const [isSoundOn, setIsSoundOn] = useState(false)
+  const [isFullscreenOn, setFullscreenOn] = useState(true)
 
   function toggleLeaderBoard(){
     setLBIsShown(LBIsShown => !LBIsShown)
@@ -28,6 +31,10 @@ function App() {
       document.exitFullscreen();
     }
   }
+  
+  useEffect(() => {
+    isSoundOn ? play() : stop();
+  }, [isSoundOn]);
 
   return (
     <>
