@@ -74,10 +74,12 @@ ul, li {
   box-shadow: 0px 3px 0px 0px #282878;
 }
 
+/*
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
+*/
 
 .button-widget{
   display: flex;
@@ -113,6 +115,7 @@ button:focus-visible {
   width: 110px;
   height: 32px;
   background: #32115B;
+  border-radius: 4px;
 }
 
 .progress-bar_indicator{
@@ -186,7 +189,6 @@ h2{
 }
 
 .lb_table{
-  height: 600px;
   overflow-y: auto;
 }
 
@@ -201,6 +203,45 @@ h2{
 
 .lb_table-row:hover{
   background: #5050AF;
+}
+
+.lb-position{
+  width: 24px;
+  text-align: center;
+}
+
+.lb-name{
+  display: inline-block;
+  width: 112px;
+  text-overflow: ellipsis;
+  text-align: left;
+}
+
+.button-play{
+  position: absolute;
+  bottom: 70px;
+  right: 32px;
+  display: inline-flex;
+  padding: 8px 24px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 24px;
+  background: #FF4DF8;
+  border: none;
+  box-shadow: 0px 14px 0px 0px #C322C3;
+}
+
+.button-play:hover {
+  bottom: 66px;
+  background: #FF00F5;
+  box-shadow: 0px 10px 0px 0px #C322C3;
+}
+
+.button-play:active {
+  bottom: 60px;
+  background: #FF00F5;
+  box-shadow: 0px 6px 0px 0px #C322C3;
 }
 
 @media (prefers-color-scheme: light) {

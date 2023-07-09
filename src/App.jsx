@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import useSound from 'use-sound';
 import sound from './assets/bg-music.mp3';
+import {people} from './utils/data.js';
 // images import
 import backbutton_icon from './assets/arrow_back.svg';
 import wardrobe_icon from './assets/wardrobe.svg';
@@ -8,6 +9,7 @@ import sound_on_icon from './assets/sound-on.svg';
 import sound_off_icon from './assets/sound-off.svg';
 import fullscreen_on_icon from './assets/fullscreen.svg';
 import fullscreen_off_icon from './assets/fullscreen-off.svg';
+import playicon from './assets/playicon.svg';
 // components import
 import Button from './button/Button'
 import LevelWidget from './LevelWidget/LevelWidget'
@@ -15,6 +17,7 @@ import EnergyWidget from './EnergyWidget/EnergyWidget'
 import SecondaryButton from './secondary-button/SecondaryButton'
 import LeaderboardTable from './leaderboard/leaderboard-table/LeaderboardTable'
 import LeaderboardRow from './leaderboard/leaderboard-row/LeaderboardRow'
+import PlayButton from './playbutton/PlayButton'
 import './App.css'
 
 function App() {
@@ -72,13 +75,17 @@ function App() {
         <div className='widget-leaderboard'>
           <h2>Лидеры</h2>
           <LeaderboardTable>
-            <LeaderboardRow position='1' name='Вильгельмина'/>
-            <LeaderboardRow position='2' name='Аристотель'/>
-            <LeaderboardRow position='2' name='Аристотель'/>
-            <LeaderboardRow position='2' name='Аристотель'/>
+            {people.map(person =>
+              <LeaderboardRow key={person.id}
+                              position={person.position}
+                              name={person.name}
+                              level={person.level}
+                              points={person.points}/>
+            )}
           </LeaderboardTable>
         </div>
       }
+      <PlayButton img_url={playicon}/>
     </>
   )
 }
