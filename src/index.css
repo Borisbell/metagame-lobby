@@ -267,6 +267,20 @@ h2{
     box-shadow: 0px 4px 0px 0px #282878;
   }
 
+  .button-style:hover {
+    position: relative;
+    top: 2px;
+    background: #34346F;
+    box-shadow: 0px 2px 0px 0px #282878;
+  }
+  
+  .button-style:active {
+    position: relative;
+    top: 4px;
+    background: #34346F;
+    box-shadow: 0px 0px 0px 0px #282878;
+  }
+
   .big-button_icon{
     width: 24px;
     height: 24px;
@@ -275,7 +289,7 @@ h2{
   .button-widget{
     display: flex;
     width: auto;
-    padding: 2px 4px;
+    padding: 0px 4px;
   }
 
   .widget-icon{
@@ -365,13 +379,11 @@ h2{
   }
 
   .button-play:hover {
-    bottom: 28px;
     background: #FF00F5;
     box-shadow: 0px 4px 0px 0px #C322C3;
   }
 
   .button-play:active {
-    bottom: 26px;
     background: #FF00F5;
     box-shadow: 0px 2px 0px 0px #C322C3;
   }
