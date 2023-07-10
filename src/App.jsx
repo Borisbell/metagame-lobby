@@ -50,11 +50,29 @@ function App() {
   return (
     <>
       <div className="widgets">
-        <div className="widgets_leftside">
-          <Button img_url={backbutton_icon}/>
-          <LevelWidget toggleLeaderBoard={toggleLeaderBoard}/>
-          <Button img_url={wardrobe_icon}/>
+        <div className="widgets_leftside-wrapper">
+          <div className="widgets_leftside">
+            <Button img_url={backbutton_icon}/>
+            <LevelWidget toggleLeaderBoard={toggleLeaderBoard}/>
+            <Button img_url={wardrobe_icon}/>
+          </div>
+
+          { LBIsShown &&
+            <div className='widget-leaderboard'>
+              <h2>Лидеры</h2>
+              <LeaderboardTable>
+                {people.map(person =>
+                  <LeaderboardRow key={person.id}
+                                  position={person.position}
+                                  name={person.name}
+                                  level={person.level}
+                                  points={person.points}/>
+                )}
+              </LeaderboardTable>
+            </div>
+      }
         </div>
+        
         <div className="widgets_rightside">
           <EnergyWidget/>
           <div className='widget_controlls'>
@@ -71,20 +89,7 @@ function App() {
           </div>
         </div>
       </div>
-      { LBIsShown &&
-        <div className='widget-leaderboard'>
-          <h2>Лидеры</h2>
-          <LeaderboardTable>
-            {people.map(person =>
-              <LeaderboardRow key={person.id}
-                              position={person.position}
-                              name={person.name}
-                              level={person.level}
-                              points={person.points}/>
-            )}
-          </LeaderboardTable>
-        </div>
-      }
+      
       <PlayButton img_url={playicon}/>
     </>
   )
