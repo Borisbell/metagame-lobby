@@ -344,7 +344,7 @@ h2{
   .widget-leaderboard{
     width: 230px;
     border-radius: 12px;
-    height: calc(100vh - 120px);
+    max-height: calc(100vh - 120px);
   }
 
   .lb-position{
