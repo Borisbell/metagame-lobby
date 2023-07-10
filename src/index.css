@@ -53,7 +53,9 @@ ul, li {
 .button-style {
   width: 70px;
   height: 70px;
-  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border: none;
   border-radius: 20px;
   background: #3D3D80;
@@ -74,19 +76,12 @@ ul, li {
   box-shadow: 0px 3px 0px 0px #282878;
 }
 
-/*
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-*/
-
 .button-widget{
   display: flex;
   width: auto;
   justify-content: center;
   align-items: center;
-  padding: 0 6px;
+  padding: 0 4px;
 }
 
 .button_energy{
@@ -243,6 +238,124 @@ h2{
   background: #FF00F5;
   box-shadow: 0px 6px 0px 0px #C322C3;
 }
+
+@media only screen and (max-width: 768px) {
+  .button-style {
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 0px 0px #282878;
+  }
+
+  .big-button_icon{
+    width: 24px;
+    height: 24px;
+  }
+
+  .button-widget{
+    display: flex;
+    width: auto;
+    padding: 2px 4px;
+  }
+
+  .widget-icon{
+    width: 36px;
+    height: 28px;
+  }
+
+  .progress-bar_wrapper{
+    width: 48px;
+    height: 16px;
+  }
+
+  .progress-bar_wrapper-lvl{
+    position: relative;
+    top: 5px;
+    width: 30px;
+  }
+  
+  .progress-bar_bg{
+    position: relative;
+    left: -5px;
+    width: 48px;
+    height: 16px;
+    border-radius: 4px;
+  }
+  
+  .progress-bar_indicator{
+    position: relative;
+    left: -12px;
+    top:-16px;
+    width: 24px;
+    height: 16px;
+  }
+
+  .button_energy{
+    position: relative;
+    right: 10px;
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+  }
+
+  .button_energy img{
+    width: 18px;
+    height: 18px;
+  }
+
+  /*leaderboard*/
+  h2{
+    font-size: 14px;
+  }
+  .widget-leaderboard{
+    width: 230px;
+    border-radius: 12px;
+  }
+
+  .lb-position{
+    font-size: 14px;
+    width: 15px;
+  }
+  
+  .lb-name{
+    font-size: 14px;
+    width: 85px;
+  }
+
+
+  /* play btn */
+  .button-play{
+    position: absolute;
+    bottom: 32px;
+    right: 16px;
+    padding: 4px 12px;
+    gap: 4px;
+    border-radius: 16px;
+    box-shadow: 0px 8px 0px 0px #C322C3;
+  }
+
+  .button-play_text{
+    font-size: 18px;
+  }
+
+  .button-play_icon{
+    width: 24px;
+    height: 24px;
+  }
+
+  .button-play:hover {
+    bottom: 28px;
+    background: #FF00F5;
+    box-shadow: 0px 4px 0px 0px #C322C3;
+  }
+
+  .button-play:active {
+    bottom: 26px;
+    background: #FF00F5;
+    box-shadow: 0px 2px 0px 0px #C322C3;
+  }
+}
+
 
 @media (prefers-color-scheme: light) {
   :root {

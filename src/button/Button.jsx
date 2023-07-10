@@ -1,7 +1,7 @@
 export default function Button({img_url}) {
     return (
         <button className='button-style'>
-            <img src={img_url}/>
+            <img className='big-button_icon'src={img_url}/>
         </button>
     );
   }
